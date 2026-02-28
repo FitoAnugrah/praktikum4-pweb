@@ -45,5 +45,18 @@ class Mahasiswa {
         }
         return false;
     }
+    // 5. EKSPLORASI: Mencari data mahasiswa berdasarkan keyword
+    public function search($keyword) {
+        // Query menggunakan operator LIKE untuk pencarian sebagian kata
+        $query = "SELECT * FROM " . $this->table_name . " WHERE nama LIKE ? OR npm LIKE ? ORDER BY id DESC";
+        $stmt = $this->conn->prepare($query);
+        
+        // Menambahkan wildcard % di awal dan akhir keyword
+        $keyword = "%{$keyword}%";
+        
+        // Eksekusi dengan binding parameter
+        $stmt->execute([$keyword, $keyword]);
+        return $stmt;
+    }
 }
 ?>

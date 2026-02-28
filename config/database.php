@@ -1,8 +1,8 @@
 <?php
 class Database {
-    // Sesuaikan dengan settingan database kamu (XAMPP/Laragon biasanya seperti ini)
+    //  settingan database 
     private $host = "localhost";
-    private $db_name = "kampus"; // ganti dengan nama database kamu nanti
+    private $db_name = "kampus"; 
     private $username = "root";
     private $password = "";
     public $conn;
